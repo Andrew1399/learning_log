@@ -1,0 +1,14 @@
+{% extends 'topics/base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+    <a href="{% url 'topics:topic' topic.id %}">{{topic}}</a>
+    <p>Edit entry:</p>
+    <form action="{% url 'topics:new_entry' entry.id %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name="submit">Edit entry</button>
+    </form>
+{% endblock %}

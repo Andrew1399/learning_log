@@ -1,0 +1,90 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no">
+  <title>Learning Log</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!--Custom css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/topics.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/list_profiles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans|Playfair+Display" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <link href="{% static 'fonts/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css">
+
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+
+    <a class="navbar-brand" href="{% url 'topics:index'%}">
+       <i class="fab fa-leanpub"></i> Learning Log</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'topics:topics'%}">
+              My topics</a>
+          {% endif %}
+          <li class="nav-item">
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'users:profile' request.user.username %}">Profile</a></li>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'topics:public_topics' %}">
+              All topics</a>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'users:profiles_list' %}">Users</a></li>
+          {% endif %}
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="navbar-text">Hello, {{ user.username }}.</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_signup' %}">Sign up <i class="fas fa-user-plus"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Sign in <i class="fas fa-sign-in-alt"></i></a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+  </nav>
+
+  <main role="main" class="container">
+    <div class="pb-2 mb-2 border-bottom">
+      {% block page_header %}{% endblock page_header %}
+    </div>
+    <div>
+      {% block content %}{% endblock content %}
+    </div>
+  </main>
+
+</body>
+
+</html>

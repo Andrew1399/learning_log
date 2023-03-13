@@ -1,0 +1,46 @@
+{% extends 'topics/base.html' %}
+
+{% block content %}
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+          <div class="card-img-left d-none d-md-flex">
+            <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body p-4 p-sm-5">
+            <h3 class="card-title text-center mb-5 fw-light fs-5">Sign up</h3>
+            <form class="signup ui form" id="signup_form" method="post" action="{% url 'users:register' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <div class="d-grid mb-2">
+                <button class="btn btn-outline-primary btn-login fw-bold text-uppercase" type="submit">Sign up</button>
+              </div>
+<!--             -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<!--<form action="{% url 'users:register' %}" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button name="submit">Register</button>-->
+<!--        <input type="hidden" value="{% url 'topics:index' %}"/>-->
+<!--    </form>-->

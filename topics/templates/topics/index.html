@@ -1,0 +1,140 @@
+{% extends "topics/base.html" %}
+
+{% block page_header %}
+  <div class='jumbotron'>
+    <h1 class="display-3"><i class="fas fa-chalkboard"></i>Track your learning.</h1>
+
+    <p class="lead">Make your own Learning Log, and keep a list of the
+        topics you're learning about. Whenever you learn something new
+        about a topic, make an entry summarizing what you've learned.</p>
+
+    {% if not user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'account_signup' %}"
+        role="button">Sign up &raquo;</a>
+    {% endif %}
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <img src="https://www.smythson.com/on/demandware.static/-/Library-Sites-smythson-content-global/default/dw2bbeb430/images/clp/2023/diaries/01/Main.jpg" width="400" height="300" class="card-img-top" alt="Fissure in Sandstone"/>
+      <div class="card-body">
+        <h5 class="card-title">Create your topic and choose your favorite one</h5>
+        <p class="card-text">It's so simple. Just sign up and start creating your own topics and entries. You can create any topic!</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign up &raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/smv1999/CompetitiveProgrammingQuestionBank/master/images/cpqb.jpg" width="400" height="300" class="card-img-top" alt="Fissure in Sandstone"/>
+<!--      <img src="https://avatars.mds.yandex.net/i?id=529f9944bef637984cc1da0b832d71505a718693-8497203-images-thumbs&n=13" width="400" height="300" class="card-img-top" alt="Fissure in Sandstone"/>-->
+      <div class="card-body">
+        <h5 class="card-title">Set up your profile</h5>
+        <p class="card-text">Fill in your profile data so that other users can see you if you want! Create as many topics as possible so other users can see it!</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign up &raquo;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Public topics</h5>
+        <p class="card-text">See other users topics and like it if you prefer user's choice!</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign up &raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Other users profiles</h5>
+        <p class="card-text">Check user profiles if you're interested to know how many topic and entries they created and other details!</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign up &raquo;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock page_header %}
+
+
+
+
+
+
+
+
+
+
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Messenger</title>-->
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">-->
+<!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>-->
+<!--  <link rel="stylesheet" href="style.css"/>-->
+<!--</head>-->
+
+
+<!--<div class="ui fluid bottom container">-->
+<!--    <div class="ui four column grid">-->
+<!--    <div class="column">-->
+<!--    <div class="ui centered card">-->
+<!--      <div class="image">-->
+<!--        <img style="border-radius: 30px;" src="https://static.twentyoverten.com/5d94b04c6e5bfa373f3b2a52/9yXLjJ1NXvX/iStock-913582690.jpg" alt="pic 1">-->
+<!--      </div>-->
+<!--      <div class="content">-->
+<!--        <a class="center aligned header">Communicate with your friends</a>-->
+
+<!--        <div class="center aligned description">-->
+<!--          Easily find your friends and start communication-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--    <div class="column">-->
+<!--      <div class="ui centered card">-->
+<!--        <div class="image">-->
+<!--          <img style="border-radius: 30px;" src="https://avatars.mds.yandex.net/i?id=f7087555174774a0b566b2202d3da67e-5869038-images-thumbs&n=13" alt="pic 2">-->
+<!--        </div>-->
+<!--        <div class="content">-->
+<!--          <a class="center aligned header">Establish contacts and have fun</a>-->
+<!--          <div class="center aligned description">-->
+<!--            See people, send an invitation and communicate. It's the closest to hanging out.-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="column">-->
+<!--      <div class="ui centered card">-->
+<!--        <div class="image">-->
+<!--          <img style="border-radius: 30px;" src="https://avatars.mds.yandex.net/i?id=a85ff898c45a8763021ae68b5e961a78-5877464-images-thumbs&n=13" alt="pic 3">-->
+<!--        </div>-->
+<!--        <div class="content">-->
+<!--          <a class="center aligned header">Upload your posts</a>-->
+<!--          <div class="center aligned description">-->
+<!--            Write your posts, choose whatever your want and then upload so that other people see it-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="column">-->
+<!--      <div class="ui centered card">-->
+<!--        <div class="image">-->
+<!--          <img style="border-radius: 30px;" src="https://thumbs.dreamstime.com/b/digital-picture-gallery-close-up-laptop-pictures-blurry-dark-background-media-photo-double-exposure-164122614.jpg" alt="pic 4">-->
+<!--        </div>-->
+<!--        <div class="content">-->
+<!--          <a class="center aligned header">Create your gallery</a>-->
+<!--          <div class="center aligned description">-->
+<!--           Upload any images in your gallery and share it with your friends-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->

@@ -1,0 +1,118 @@
+{% extends 'topics/base.html' %}
+{% load static %}
+
+{% block title %}
+  All profiles
+{% endblock title %}
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+{% block content %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div class="container">
+        <div class="row">
+            {% for obj in queryset %}
+            <div class="col-md-4">
+                <div class="card user-card">
+                    <div class="card-header">
+                        <h5>Profile</h5>
+                    </div>
+                <div class="card-block">
+                    <div class="user-image">
+                        <img src="{{obj.image.url}}" class="img-radius" alt="User-Profile-Image">
+                    </div>
+                    <h6 class="f-w-600 m-t-25 m-b-10">{{obj.first_name}} {{obj.last_name}}</h6>
+                    <p class="text-muted">Active | Born {{obj.birthday_year}}</p>
+                    <hr>
+                    <p class="text-muted m-t-15">{{obj.about}}</p>
+<!--                     <h6 class="theme-color lead">{{profile.about}}</h6>-->
+                    <ul class="list-unstyled activity-leval">
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                    </ul>
+                    <div class="bg-c-blue counter-block m-t-10 p-20">
+                        <div class="row">
+                            <div class="col-4">
+                                Topics:
+                                <p>{{obj.get_topics_list}}</p>
+                            </div>
+                            <div class="col-4">
+                                Favorite:
+                                <p>{{obj.count_favorite_topics}}</p>
+                            </div>
+                            <div class="col-4">
+                                Views:
+                                <p>{{ obj.views }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="m-t-15 text-muted">{{obj.bio}}</p>
+                    <hr>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <a href="{{obj.get_absolute_url}}"><button type="button" class="btn btn-default btn-sm btn-block"><i class="fas fa-portrait"></i> View profile</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+	</div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="page">-->
+<!--    <div class="container bootstrap snippets bootdey">-->
+<!--    <div class="col-sm-4">-->
+<!--      &lt;!&ndash; Begin user profile &ndash;&gt;-->
+<!--      <div class="box-info text-center user-profile-2">-->
+<!--        <div class="header-cover">-->
+<!--          <img src="https://www.bootdey.com/image/350x280/87CEFA/000000" alt="User cover">-->
+<!--        </div>-->
+<!--        <div class="user-profile-inner">-->
+<!--          <h4 class="white">{{obj.user.username}}</h4>-->
+<!--          <img src="{{obj.image.url}}" class="img-circle profile-avatar" alt="User avatar">-->
+<!--          <h5>{{obj.about}}</h5>-->
+
+<!--          &lt;!&ndash; User button &ndash;&gt;-->
+<!--          <div class="user-button">-->
+<!--            <div class="row">-->
+<!--              <div class="col-md-6">-->
+<!--                <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send message</button>-->
+<!--              </div>-->
+<!--              <div class="col-md-6">-->
+<!--                <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> View profile</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    </div>-->
