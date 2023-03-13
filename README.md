@@ -7,3 +7,5 @@ Application for creating topics and entries
 - Django allauth
 - Sqlite3
 - Bootstrap4
+
+# Functionality
