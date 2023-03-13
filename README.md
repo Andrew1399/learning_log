@@ -1,7 +1,6 @@
 # learning_log
 Application for creating topics and entries
-https://prnt.sc/qIN9lx4Rre1Z
-![ScreenShot](https://prnt.sc/qIN91x4Rre17 "Optional title")
+![image](https://user-images.githubusercontent.com/102066744/224691559-a0ec4907-95f6-4c6d-81b0-51e854078446.png)
 
 # Technology Stack
 - Python 3.9
